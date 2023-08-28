@@ -1,4 +1,4 @@
-#Mon Aug 28 18:38:53 ART 2023
+#Mon Aug 28 18:57:44 ART 2023
 base.0=C\:\\Users\\julia\\OneDrive\\Escritorio\\Seminario_de_Lenguaje\\TP_SDL_G11\\TP_G11\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\julia\\OneDrive\\Escritorio\\Seminario_de_Lenguaje\\TP_SDL_G11\\TP_G11\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\julia\\OneDrive\\Escritorio\\Seminario_de_Lenguaje\\TP_SDL_G11\\TP_G11\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
