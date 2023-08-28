@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/layout_activity_login.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/layout_activity_lista_ciudades.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/layout/activity_lista_ciudades.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/xml_backup_rules.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/layout_activity_main.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_sunny.png.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/sunny.png"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_parcialmente_nublado.jpg.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/parcialmente_nublado.jpg"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_rainy.png.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/rainy.png"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_cloudy.png.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/cloudy.png"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/layout_activity_crear_usuario.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/layout/activity_crear_usuario.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/layout_activity_details.xml.flat",
+        "source": "com.example.tp_g11.app-main-30:/layout/activity_details.xml"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/drawable_thunderstorm.png.flat",
+        "source": "com.example.tp_g11.app-main-30:/drawable/thunderstorm.png"
+    },
+    {
+        "merged": "com.example.tp_g11.app-merged_res-28:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.tp_g11.app-main-30:/mipmap-xxhdpi/ic_launcher.webp"
+    }
+]
