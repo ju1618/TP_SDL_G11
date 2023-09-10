@@ -8,6 +8,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/primary_layout"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"

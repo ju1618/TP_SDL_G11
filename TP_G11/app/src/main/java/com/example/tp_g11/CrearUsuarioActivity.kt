@@ -32,10 +32,17 @@ class CrearUsuarioActivity : AppCompatActivity() {
         etPassCreate=findViewById(R.id.etPassCreate)
         etPassRepeat=findViewById(R.id.etPassRepeat)
 
-        val nombreUsuario=etUsuarioCreate.text.toString()
+        val nombreUsuario = etUsuarioCreate.text.toString()
+        val passUsuario = etPassCreate.text.toString()
 
         btnCrear.setOnClickListener{
-            Toast.makeText(this,"Usuario Registrado", Toast.LENGTH_SHORT).show()
+
+            if(nombreUsuario.isEmpty()||passUsuario.isEmpty()) {
+
+                Toast.makeText(this, "Faltan datos!", Toast.LENGTH_LONG).show()
+
+            }
+            Toast.makeText(this,"Usuario registrado", Toast.LENGTH_SHORT).show()
 
             val intentMain = Intent(this, MainActivity::class.java)
 

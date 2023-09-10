@@ -3,22 +3,28 @@ package com.example.tp_g11
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
     // Variables para vincular con la vista
     lateinit var btnCrearMain : Button
     lateinit var btnIniciarMain : Button
-    lateinit var btnListaCiudades:Button
+    lateinit var btnListaCiudades: Button
+    lateinit var toolbar : Toolbar
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar);
 
         saludarUsuario()
 
@@ -29,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentCreate)
             finish()
         }
+
+
+
 
         btnIniciarMain = findViewById(R.id.btnIniciarMain)
 

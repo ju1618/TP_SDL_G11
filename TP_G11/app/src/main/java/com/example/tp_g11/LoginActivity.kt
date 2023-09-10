@@ -28,10 +28,11 @@ class LoginActivity : AppCompatActivity() {
         btnIniciar.setOnClickListener{
             var mensaje= "Iniciar Sesion"
             val nombreUsuario = etUsuario.text.toString()
-            if(nombreUsuario.isEmpty()||etPass.text.toString().isEmpty()){
-                mensaje+= " - Faltan Datos"
+            val passUsuario = etPass.text.toString()
+            if(nombreUsuario.isEmpty()||passUsuario.isEmpty()) {
+                Toast.makeText(this, "Faltan datos!", Toast.LENGTH_LONG).show()
 
-            }else{
+            } else {
                 mensaje+= " - Inicio Correcto"
                 if(cbRecordar.isChecked){
                     mensaje+= " (Recordar Usuario)"
