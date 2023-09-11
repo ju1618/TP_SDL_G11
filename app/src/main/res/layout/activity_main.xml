@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,39 +11,19 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/primary_layout"/>
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="top"
+        layout="@layout/primary_layout" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="236dp"
-            android:layout_weight=".25"
-            app:srcCompat="@drawable/cloudy" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="236dp"
-            android:layout_weight=".25"
-            app:srcCompat="@drawable/sunny" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="236dp"
-            android:layout_weight=".25"
-            app:srcCompat="@drawable/rainy" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="236dp"
-            android:layout_weight=".25"
-            app:srcCompat="@drawable/thunderstorm" />
-
-    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +35,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:weightSum="1">
 
         <Button
@@ -117,5 +98,5 @@
             app:srcCompat="@drawable/thunderstorm" />
 
     </LinearLayout>
-
+</LinearLayout>
 </LinearLayout>

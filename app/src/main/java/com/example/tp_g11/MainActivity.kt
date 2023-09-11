@@ -66,6 +66,11 @@ class MainActivity : AppCompatActivity() {
             val intentSobreNosotros = Intent(this, SobreNosotrosActivity::class.java)
             startActivity(intentSobreNosotros)
         }
+
+        if (item.itemId == R.id.action_listaciudades) {
+            val intentListaCiudades = Intent(this, ListaCiudadesActivity::class.java)
+            startActivity(intentListaCiudades)
+        }
         return super.onOptionsItemSelected(item)
     }
 
