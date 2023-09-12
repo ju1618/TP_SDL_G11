@@ -5,24 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class ListaCiudadesActivity : AppCompatActivity() {
     lateinit var btnMostrar : Button
     lateinit var btnVolver: Button
-    lateinit var cbBA: CheckBox
-    lateinit var cbRos: CheckBox
-    lateinit var cbCor: CheckBox
-    lateinit var cbSal: CheckBox
-    lateinit var cbEsc: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_ciudades)
-        cbBA=findViewById(R.id.cbBA)
-        cbRos=findViewById(R.id.cbRos)
-        cbCor=findViewById(R.id.cbCor)
-        cbSal=findViewById(R.id.cbSal)
-        cbEsc=findViewById(R.id.cbEsc)
+
+        val vistaReciclada = findViewById<RecyclerView>(R.id.recyclerCiudades)
+        vistaReciclada.layoutManager= LinearLayoutManager(this)
+        vistaReciclada.adapter=CiudadAdaptador(CiudadesProvider.ciudadesLista)
 
         btnMostrar=findViewById(R.id.btnMostrar)
 
