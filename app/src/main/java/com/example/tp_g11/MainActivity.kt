@@ -1,5 +1,6 @@
 package com.example.tp_g11
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -70,6 +71,15 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.action_listaciudades) {
             val intentListaCiudades = Intent(this, ListaCiudadesActivity::class.java)
             startActivity(intentListaCiudades)
+        }
+
+        if (item.itemId == R.id.action_logout){
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            sharedPreferences.edit().clear().apply()
+            Toast.makeText(this, "Datos de SharedPreferences eliminados", Toast.LENGTH_SHORT).show()
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         return super.onOptionsItemSelected(item)
     }
