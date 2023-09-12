@@ -1,19 +1,24 @@
 package com.example.tp_g11
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
     // Variables para vincular con la vista
-    lateinit var btnCrearMain : Button
-    lateinit var btnIniciarMain : Button
-    lateinit var btnListaCiudades:Button
+    lateinit var btnCrearMain: Button
+    lateinit var btnIniciarMain: Button
+    lateinit var btnListaCiudades: Button
+    lateinit var toolbar : Toolbar
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         saludarUsuario()
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         btnCrearMain = findViewById(R.id.btnCrearMain)
 
@@ -32,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         btnIniciarMain = findViewById(R.id.btnIniciarMain)
 
-        btnIniciarMain.setOnClickListener{
+        btnIniciarMain.setOnClickListener {
             val intentLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentLogin)
             finish()
@@ -41,20 +49,46 @@ class MainActivity : AppCompatActivity() {
 
         btnListaCiudades = findViewById(R.id.btnListaCiudades)
 
-        btnListaCiudades.setOnClickListener{
-            val intentMostrarLista = Intent(this,ListaCiudadesActivity::class.java)
+        btnListaCiudades.setOnClickListener {
+            val intentMostrarLista = Intent(this, ListaCiudadesActivity::class.java)
             startActivity(intentMostrarLista)
             finish()
         }
 
     }
 
-    private fun saludarUsuario() {
-        var bundle: Bundle? = intent.extras
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
 
-        if(bundle != null){
-            var usuario = bundle?.getString("nombre")
-            Toast.makeText(this, "Bienvenid@ $usuario", Toast.LENGTH_LONG).show()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_sobrenosotros) {
+            val intentSobreNosotros = Intent(this, SobreNosotrosActivity::class.java)
+            startActivity(intentSobreNosotros)
         }
+
+        if (item.itemId == R.id.action_listaciudades) {
+            val intentListaCiudades = Intent(this, ListaCiudadesActivity::class.java)
+            startActivity(intentListaCiudades)
+        }
+
+        if (item.itemId == R.id.action_logout){
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            sharedPreferences.edit().clear().apply()
+            Toast.makeText(this, "Datos de SharedPreferences eliminados", Toast.LENGTH_SHORT).show()
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun saludarUsuario() {
+        Toast.makeText(this, "usuario Logueado", Toast.LENGTH_SHORT).show()
+
     }
 }
+
+//Buscar como hacer un logoff
+//buscar como hacer q los botones cambien su visibilidad
