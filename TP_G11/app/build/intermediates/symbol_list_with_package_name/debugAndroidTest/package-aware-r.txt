@@ -1,3 +1,0 @@
-com.example.tp_g11.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
