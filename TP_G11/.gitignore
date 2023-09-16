@@ -9,6 +9,13 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
+/gradle/caches
+/gradle/android/
+/gradle/daemon/
+/gradle/kotlin-profile/
+/gradle/native/
+/gradle/wrapper/dists/
+
 /build
 /captures
 .externalNativeBuild
