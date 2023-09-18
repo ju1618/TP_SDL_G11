@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 
 class CrearUsuarioActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class CrearUsuarioActivity : AppCompatActivity() {
     lateinit var etUsuarioCreate: EditText
     lateinit var etPassCreate: EditText
     lateinit var etPassRepeat: EditText
+    lateinit var backButton: ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,7 @@ class CrearUsuarioActivity : AppCompatActivity() {
         etUsuarioCreate = findViewById(R.id.etUsuarioCreate)
         etPassCreate = findViewById(R.id.etPassCreate)
         etPassRepeat = findViewById(R.id.etPassRepeat)
+        backButton = findViewById(R.id.backButton)
 
         btnCrear.setOnClickListener {
             val nombreUsuario = etUsuarioCreate.text.toString()

@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import android.content.Context
 import android.content.SharedPreferences
+import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
 
 class LoginActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var etPass: EditText
     lateinit var cbRecordar: CheckBox
     lateinit var btnIniciar: Button
+    lateinit var backButton: ImageButton
 
 
     private lateinit var sharedPreferences: SharedPreferences
@@ -28,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         etPass = findViewById(R.id.etPass)
         cbRecordar = findViewById(R.id.cbRecordar)
         btnIniciar = findViewById(R.id.btnIniciar)
-
+        backButton = findViewById(R.id.backButton)
 
 
 
@@ -42,6 +44,10 @@ class LoginActivity : AppCompatActivity() {
         if (usuarioGuardado != "" && passwordGuardado != "") {
             //val intent= Intent(this, Menu::class.java)
             redirectMainActivity()
+        }
+
+        backButton.setOnClickListener {
+            super.onBackPressed()
         }
 
         btnIniciar.setOnClickListener {
@@ -97,4 +103,4 @@ class LoginActivity : AppCompatActivity() {
         //esta funcion tendria que devolver si existe o no el usuario en db nada mas
     }
 
-    }
+}

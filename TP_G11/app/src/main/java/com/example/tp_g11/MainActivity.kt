@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnIniciarMain: Button
     lateinit var btnListaCiudades: Button
     lateinit var toolbar : Toolbar
+    lateinit var backButton: ImageButton
 
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,12 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        backButton = findViewById(R.id.backButton)
+
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+
         btnCrearMain = findViewById(R.id.btnCrearMain)
 
         btnCrearMain.setOnClickListener {
@@ -37,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentCreate)
             finish()
         }
+
 
         btnIniciarMain = findViewById(R.id.btnIniciarMain)
 
