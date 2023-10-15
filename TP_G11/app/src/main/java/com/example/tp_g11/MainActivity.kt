@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,35 +21,37 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnListaCiudades: Button
     lateinit var toolbar : Toolbar
 
+    // Variable para rastrear si el usuario ya ha iniciado sesión
+    private var mensajeMostrado = false
+
     // Funcion que se ejecuta al iniciar un Activity
     override fun onCreate(savedInstanceState: Bundle?) {
+        val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        saludarUsuario()
+        screenSplash.setKeepOnScreenCondition{ false }
+
+        //saludarUsuario()
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         btnCrearMain = findViewById(R.id.btnCrearMain)
+        btnIniciarMain = findViewById(R.id.btnIniciarMain)
+        btnListaCiudades = findViewById(R.id.btnListaCiudades)
 
         btnCrearMain.setOnClickListener {
             val intentCreate = Intent(this, CrearUsuarioActivity::class.java)
             startActivity(intentCreate)
             finish()
         }
-
-        btnIniciarMain = findViewById(R.id.btnIniciarMain)
-
         btnIniciarMain.setOnClickListener {
             val intentLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentLogin)
             finish()
 
         }
-
-        btnListaCiudades = findViewById(R.id.btnListaCiudades)
-
         btnListaCiudades.setOnClickListener {
             val intentMostrarLista = Intent(this, ListaCiudadesActivity::class.java)
             startActivity(intentMostrarLista)
@@ -76,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         if (item.itemId == R.id.action_logout){
             val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             sharedPreferences.edit().clear().apply()
-            Toast.makeText(this, "Datos de SharedPreferences eliminados", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Datos eliminados", Toast.LENGTH_SHORT).show()
             val intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -84,11 +87,15 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun saludarUsuario() {
-        Toast.makeText(this, "usuario Logueado", Toast.LENGTH_SHORT).show()
+    /*private fun saludarUsuario() {
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val usuarioGuardado = sharedPreferences.getString("nombre_usuario", "")
 
-    }
+        if (!usuarioGuardado.isNullOrEmpty()) {
+            Toast.makeText(this, "Usuario Logueado", Toast.LENGTH_SHORT).show()
+        }
+    }*/
 }
 
-//Buscar como hacer un logoff
+
 //buscar como hacer q los botones cambien su visibilidad
