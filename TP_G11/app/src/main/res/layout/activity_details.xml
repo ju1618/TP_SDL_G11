@@ -16,16 +16,18 @@
         android:weightSum="1"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_weight=".5"
+        android:layout_weight=".2"
         >
         <TextView
+            android:id="@+id/nombreCiudad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estado actual"
+            android:text="Estado actual para"
             android:textSize="30sp"
             />
 
         <ImageView
+            android:id="@+id/imagenClima"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -35,7 +37,22 @@
             android:maxHeight="200dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/cloudy"
+            android:visibility="gone"
             />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="temperatura"/>
+        <TextView
+            android:id="@+id/tempDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="descripcion"
+            android:layout_gravity="bottom"
+            android:textSize="25sp"/>
+
     </LinearLayout>
 
     <LinearLayout

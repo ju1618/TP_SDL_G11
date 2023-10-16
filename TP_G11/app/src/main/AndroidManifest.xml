@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" package="com.example.tp_g11">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +17,9 @@
 
         <activity
             android:name=".SobreNosotrosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaProvinciasActivity"
             android:exported="false" />
         <activity
             android:name=".ListaCiudadesActivity"

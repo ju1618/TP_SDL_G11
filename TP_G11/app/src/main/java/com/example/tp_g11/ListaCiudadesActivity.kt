@@ -1,43 +1,68 @@
 package com.example.tp_g11
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import android.content.Intent
+import com.google.gson.reflect.TypeToken
+import android.util.Log
 
-class ListaCiudadesActivity : AppCompatActivity() {
-    lateinit var btnMostrar : Button
-    lateinit var btnVolver: Button
+
+class ListaCiudadesActivity: AppCompatActivity() {
+
+    val gson = Gson()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_ciudades)
 
-        val vistaReciclada = findViewById<RecyclerView>(R.id.recyclerCiudades)
-        vistaReciclada.layoutManager= LinearLayoutManager(this)
-        vistaReciclada.adapter=CiudadAdaptador(CiudadesProvider.ciudadesLista)
+        val json = intent.getStringExtra("Ciudades")
+        val tipoCiudad = object : TypeToken<List<Base>>() {}.type
+        val ciudades:  List<Base> = gson.fromJson(json, tipoCiudad)
 
-        btnMostrar=findViewById(R.id.btnMostrar)
+        val vistaCiudades =  findViewById<RecyclerView>(R.id.recyclerCiudades)
 
-        btnMostrar.setOnClickListener {
-            val intentMostrar = Intent(this, DetailsActivity::class.java)
+        vistaCiudades.layoutManager = LinearLayoutManager(this)
 
-            //if(cbBA.isChecked){
-            //   intentMostrar.putExtra("ciudad", "Buenos Aires")
-            //}
+        Log.i("Ciudades", ciudades.toString())
 
-            startActivity(intentMostrar)
-            finish()
-        }
 
-        btnVolver=findViewById(R.id.btnVolver)
-        btnVolver.setOnClickListener {
-            val intentVolver=Intent(this,MainActivity::class.java)
-            startActivity(intentVolver)
-            finish()
-        }
+        val recyclerViewClickListener = RecyclerViewClickListener(
+            this,
+            vistaCiudades,
+            object : RecyclerViewClickListener.OnItemClickListener {
+                override fun onItemClick(view: View, position: Int) {
+                    val ciudadSeleccionada = ciudades?.get(position) // Obtener la ciudad seleccionada
+                    //val intent = Intent(this, DetailsActivity::class.java)
+                    iniciarDetalleActivity(ciudadSeleccionada)
+
+                }
+            })
+
+        vistaCiudades.adapter = CiudadAdaptador(ordenarCiudades(ciudades))
+
+        vistaCiudades.addOnItemTouchListener(recyclerViewClickListener)
+
+
     }
+
+private fun iniciarDetalleActivity(ciudadSeleccionada: Base?) {
+    val intent = Intent(this, DetailsActivity::class.java)
+
+    val cSeleccionada = gson.toJson(ciudadSeleccionada)
+    intent.putExtra("Ciudad", cSeleccionada)
+    startActivity(intent)
+
+}
+
+    fun ordenarCiudades(data: List<Base>): List<Base> { //Ordenar la lista de manera alfabeticamente
+
+        return data.sortedBy { it.name }
+
+    }
+
 }
