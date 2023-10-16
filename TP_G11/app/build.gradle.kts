@@ -68,6 +68,10 @@ dependencies {
 
     //Gson
     implementation ("com.google.code.gson:gson:2.8.9")
+
+    //Corrutinas
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     
 }
 

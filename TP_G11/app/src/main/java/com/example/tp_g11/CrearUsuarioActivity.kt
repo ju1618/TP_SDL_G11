@@ -7,6 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CrearUsuarioActivity : AppCompatActivity() {
 
@@ -41,8 +45,13 @@ class CrearUsuarioActivity : AppCompatActivity() {
                 if (passwordUsuario != passwordUsuarioRepeat) {
                     Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 } else {
-                    val newUser = Usuario(nombreUsuario, passwordUsuario, mailUsuario)
-                    AppDatabase.getDatabase(this).usuarioDao().insertUsuario(newUser)
+                    lifecycleScope.launch {
+                        val newUser = Usuario(nombreUsuario, passwordUsuario, mailUsuario)
+                        withContext(Dispatchers.IO) {
+                            val context = this@CrearUsuarioActivity // Obtener el contexto de la actividad actual
+                            AppDatabase.getDatabase(context).usuarioDao().insertUsuario(newUser)
+                        }
+                    }
                     Toast.makeText(this, "Usuario Registrado", Toast.LENGTH_SHORT).show()
                     val intentMain = Intent(this, MainActivity::class.java)
                     startActivity(intentMain)
