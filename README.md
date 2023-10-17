@@ -3,9 +3,9 @@
 ## **Grupo 11**
 # **Integrantes**
 
-Argibay, Paulo 
-Fernández, Julia Elena 
-Ruiz, Lucía Daniela 
+Argibay, Paulo <br>
+Fernández, Julia Elena <br>
+Ruiz, Lucía Daniela <br>
 
 ## APIWeather
 
