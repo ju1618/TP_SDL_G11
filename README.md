@@ -9,7 +9,7 @@ Ruiz, Lucía Daniela <br>
 
 ## APIWeather
 
-**Idea principal de la App** Mostrar un listado de provincias, seleccionar una de ellas, a continuación mostrar el listado de ciudades, al seleccionar una consultar con la API de del Servicio Meteorologico Nacional el estado actual del clima
+**Idea principal de la App** Mostrar un listado de provincias, seleccionar una de ellas, a continuación mostrar el listado de ciudades, al seleccionar una consultar con la API del Servicio Meteorologico Nacional el estado actual del clima
 
 ## Links a videos
 
