@@ -60,6 +60,8 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
 
     // Retrofit for making HTTP requests
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")

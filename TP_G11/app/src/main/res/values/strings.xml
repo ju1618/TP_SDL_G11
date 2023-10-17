@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TP_G11</string>
+    <string name="app_name">APIWeather</string>
     <string name="nombre_usuario">NOMBRE</string>
     <string name="password_usuario">PASSWORD</string>
     <string name="sp_credenciales">MyPrefs</string>

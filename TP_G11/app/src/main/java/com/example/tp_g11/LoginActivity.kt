@@ -11,6 +11,16 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+
 
 class LoginActivity : AppCompatActivity() {
     lateinit var etUsuario: EditText
@@ -74,11 +84,12 @@ class LoginActivity : AppCompatActivity() {
 
                     //si existe lo logueo y si puse recuerdame lo guardo
                     if(cbRecordar.isChecked){
-                        Toast.makeText(this, "usuario recordado", Toast.LENGTH_SHORT).show()
-                        //seteamos por defecto en el preference
+                        mostrarNotificacionDeRecordatorio()
+                        Toast.makeText(this, "Usuario recordado", Toast.LENGTH_SHORT).show()
                         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-                        sharedPreferences.edit().putString("nombre_usuario",nombreUsuario).apply()
-                        sharedPreferences.edit().putString("password_usuario",passwordUsuario).apply()
+                        sharedPreferences.edit().putString("nombre_usuario", nombreUsuario).apply()
+                        sharedPreferences.edit().putString("password_usuario", passwordUsuario).apply()
+                        redirectMainActivity()
 
                         //redirijo a Main
                         redirectMainActivity()
@@ -114,4 +125,45 @@ class LoginActivity : AppCompatActivity() {
         //esta funcion tendria que devolver si existe o no el usuario en db nada mas
     }
 
+    private fun mostrarNotificacionDeRecordatorio() {
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "channel_id",
+                "Nombre del Canal",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+        val intentAbrir = Intent(this, MainActivity::class.java)
+        intentAbrir.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        val pendingIntentAbrir = PendingIntent.getActivity(
+            this,
+            0,
+            intentAbrir,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notificationBuilder = NotificationCompat.Builder(this, "channel_id")
+            .setSmallIcon(R.drawable.ic_notification_icon2)
+            .setContentTitle("Hola Usuari@")
+            .setContentText("Verifica el clima en tu zona")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntentAbrir)
+            .setAutoCancel(true)
+
+
+        val notificationManagerCompat = NotificationManagerCompat.from(this)
+        val notificationId = 1
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        notificationManagerCompat.notify(notificationId, notificationBuilder.build())
+    }
 }

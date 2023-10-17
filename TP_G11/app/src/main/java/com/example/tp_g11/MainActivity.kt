@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,11 +22,17 @@ class MainActivity : AppCompatActivity() {
     lateinit var backButton: ImageButton
 
     // Funcion que se ejecuta al iniciar un Activity
+    // Variable para rastrear si el usuario ya ha iniciado sesión
+    private var mensajeMostrado = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        saludarUsuario()
+        screenSplash.setKeepOnScreenCondition{ false }
+
+
+        //saludarUsuario()
 
 
         toolbar = findViewById(R.id.toolbar)
@@ -92,8 +99,10 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /*
     private fun saludarUsuario() {
-        Toast.makeText(this, "usuario Logueado", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "usuario Logueado", Toast.LENGTH_SHORT).show()
 
     }
+    */
 }
