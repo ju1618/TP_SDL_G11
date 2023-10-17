@@ -19,7 +19,7 @@ class ListaProvinciasActivity : AppCompatActivity() {
     lateinit var btnVolveraLista: Button
     lateinit var btnVolverMain : Button
 
-    val gson = Gson()○
+    val gson = Gson()
 
     lateinit var listaProvincias: List<Base>
     lateinit var dataFiltrada: List<Base>
