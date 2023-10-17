@@ -8,6 +8,13 @@
     android:gravity="center_horizontal"
     tools:context=".CrearUsuarioActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="top"
+        android:label=""
+        layout="@layout/primary_layout" />
 
 
     <TextView

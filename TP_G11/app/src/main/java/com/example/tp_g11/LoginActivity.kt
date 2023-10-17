@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var etPass: EditText
     lateinit var cbRecordar: CheckBox
     lateinit var btnIniciar: Button
+    lateinit var toolbar : Toolbar
     lateinit var backButton: ImageButton
 
 
@@ -31,6 +32,16 @@ class LoginActivity : AppCompatActivity() {
         cbRecordar = findViewById(R.id.cbRecordar)
         btnIniciar = findViewById(R.id.btnIniciar)
         backButton = findViewById(R.id.backButton)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        backButton = findViewById(R.id.backButton)
+        supportActionBar?.title = ""
+
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
 
 
 

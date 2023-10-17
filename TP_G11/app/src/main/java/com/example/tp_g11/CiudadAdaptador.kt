@@ -3,6 +3,7 @@ package com.example.tp_g11
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import android.util.Log
 
 class CiudadAdaptador(private val listaCiudad: List<Base>): RecyclerView.Adapter<CiudadViewHolder>() {
 
@@ -17,6 +18,7 @@ class CiudadAdaptador(private val listaCiudad: List<Base>): RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
+
         return listaCiudad.size
     }
 }

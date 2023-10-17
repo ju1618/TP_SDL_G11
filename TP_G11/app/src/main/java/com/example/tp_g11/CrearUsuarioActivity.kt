@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,6 +20,8 @@ class CrearUsuarioActivity : AppCompatActivity() {
     lateinit var etUsuarioCreate: EditText
     lateinit var etPassCreate: EditText
     lateinit var etPassRepeat: EditText
+    lateinit var toolbar : Toolbar
+    lateinit var backButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,16 @@ class CrearUsuarioActivity : AppCompatActivity() {
         etUsuarioCreate = findViewById(R.id.etUsuarioCreate)
         etPassCreate = findViewById(R.id.etPassCreate)
         etPassRepeat = findViewById(R.id.etPassRepeat)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = ""
+
+        backButton = findViewById(R.id.backButton)
+
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         btnCrear.setOnClickListener {
             val nombreUsuario = etUsuarioCreate.text.toString()

@@ -3,13 +3,18 @@ package com.example.tp_g11
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.w3c.dom.Text
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import androidx.recyclerview.widget.RecyclerView
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -28,14 +33,21 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
+        //val pronosticoExtendido = findViewById<RecyclerView>(R.id.pronosticoExtendidoRecyclerView)
+        //pronosticoExtendido.layoutManager = LinearLayoutManager(this)
+
+
         ciudadTexto = findViewById<TextView>(R.id.nombreCiudad)
         temp = findViewById<TextView>(R.id.temp)
         tempDesc = findViewById<TextView>(R.id.tempDesc)
+        imagenClima = findViewById<ImageView>(R.id.imagenClima)
 
         val json = intent.getStringExtra("Ciudad")
         val tipoCiudad = object : TypeToken<Base>() {}.type
         val ciudad: Base = gson.fromJson(json, tipoCiudad)
         val condicion: Int = ciudad.weather.id
+
+        lateinit var listaPronostico: List<Pronostico>
 
         //TODO falta hacer el resto del pronostico
         //TODO falta poner el resto de los diferentes climas
@@ -44,20 +56,68 @@ class DetailsActivity : AppCompatActivity() {
         when (condicion) {
             1 -> { //Algo nublado
                 imagenClima.setImageResource(R.drawable.algo_nublado)
-                imagenClima.visibility = View.VISIBLE
-            }
-            2 -> { //Parcialmente nublado
+            } 2 -> { //Parcialmente nublado
                 imagenClima.setImageResource(R.drawable.parcialmente_nublado)
-                imagenClima.visibility = View.VISIBLE
-         /*   } 10 -> { //Cubierto con neblina
+            } 3-> { //Nublado con lloviznas
+                imagenClima.setImageResource(R.drawable.llovizna)
+            } 4-> {
+            imagenClima.setImageResource(R.drawable.tormenta_sin_precipitacion)
+            } 5-> {
+            imagenClima.setImageResource(R.drawable.nevada)
+            } 10 -> { //Cubierto con neblina
             imagenClima.setImageResource(R.drawable.cubierto_con_neblina)
-            imagenClima.visibility = View.VISIBLE
-        */}
+            } else -> {
+                imagenClima.setImageResource(R.drawable.soleado)
+        }
         }
 
         ciudadTexto.text = ciudad.name
         temp.text = ciudad.weather.tempDesc
         tempDesc.text = ciudad.weather.description
+
+        val servicioSMN = retrofit.create(SMNService::class.java)
+
+        /*
+        val dia1 = servicioSMN.getPronostico(1, ciudad.fid)
+        val dia2 = servicioSMN.getPronostico(2, ciudad.fid)
+        val dia3 = servicioSMN.getPronostico(3, ciudad.fid)
+
+
+       dia1.enqueue(object: Callback<ResponseBody> {
+
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    val pronostico1 =  response.body()?.string()
+                    if (pronostico1 != null) {
+
+                        val dia1Clima = Gson().fromJson(pronostico1, Pronostico::class.java)
+
+
+                        //listaPronostico.add(dia1Clima)
+
+
+
+                        //val adaptador =  PronosticoAdaptador(listaPronostico)
+                        //pronosticoExtendido.adapter = adaptador
+
+
+                    }
+
+
+
+
+
+
+            } else {
+                // Handle the error response
+            }
+        }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            // Handle network failure
+        }
+    })
+    */
 
 
         btnVolveraLista = findViewById(R.id.btnVolveraLista)

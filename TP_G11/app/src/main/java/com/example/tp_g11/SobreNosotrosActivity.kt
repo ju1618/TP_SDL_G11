@@ -12,6 +12,8 @@ class SobreNosotrosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sobre_nosotros)
 
+
+
         backButton = findViewById(R.id.backButton)
 
         backButton.setOnClickListener {

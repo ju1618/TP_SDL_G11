@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         saludarUsuario()
 
-        SMNApi.getClima()
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -98,6 +97,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
-//Buscar como hacer un logoff
-//buscar como hacer q los botones cambien su visibilidad

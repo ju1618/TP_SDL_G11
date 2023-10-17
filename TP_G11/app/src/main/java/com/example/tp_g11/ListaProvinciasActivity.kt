@@ -5,18 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.google.gson.Gson
-import android.util.Log
 
 
 class ListaProvinciasActivity : AppCompatActivity() {
-    lateinit var btnMostrar: Button
-    lateinit var btnVolver: Button
+    lateinit var btnVolveraLista: Button
+    lateinit var btnVolverMain : Button
 
     val gson = Gson()
 
@@ -39,7 +40,6 @@ class ListaProvinciasActivity : AppCompatActivity() {
             object : RecyclerViewClickListener.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int) {
                     provinciaSeleccionada = dataFiltrada.get(position).province // Obtener la provincia seleccionada
-                    val filtrarCiudades = filtrarListaCiudadesProvincia(dataFiltrada, provinciaSeleccionada.toString())
                     iniciarListaCiudadesActivity(filtrarListaCiudadesProvincia(listaProvincias, provinciaSeleccionada.toString()))
 
                 }
@@ -69,6 +69,20 @@ class ListaProvinciasActivity : AppCompatActivity() {
                 // Handle network failure
             }
         })
+
+        btnVolveraLista = findViewById(R.id.btnVolveraLista)
+        btnVolveraLista.setOnClickListener {
+            val intentLista=Intent(this,ListaProvinciasActivity::class.java)
+            startActivity(intentLista)
+            finish()
+        }
+
+        btnVolverMain= findViewById(R.id.btnVolverMain)
+        btnVolverMain.setOnClickListener {
+            val intentMain=Intent(this,MainActivity::class.java)
+            startActivity(intentMain)
+            finish()
+        }
 
 
     }
