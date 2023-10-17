@@ -68,7 +68,7 @@
         android:layout_margin="5dp"
         android:backgroundTint="#064577"
         android:textColor="@color/white"
-        android:text="Mostrar Lista Ciudades" />
+        android:text="Mostrar Lista Provincias" />
 
     <LinearLayout
         android:layout_width="match_parent"
